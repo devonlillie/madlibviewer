@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Madlib viewer</h1>
+<div class="col-sm-6">
+	<h4>Create New Madlib</h4>
+	<form method="post">{% csrf_token %}
+		<div class="form-group"><label for="title">Title:</label>
+			<input type="text" name="title" class="form-control"></div>
+		<div class="form-group"><label for="text">Text:</label>
+			<textarea name="text" class="form-control"></textarea></div>
+		<button class="btn btn-default save">Submit</button>
+		{% if message %}
+		<h5 class="warning">A madlib with that title already exists</h5>
+		{% else %}
+		<br />
+		{% endif %}
+	</form>
+</div>
+
+<div class="col-sm-6">
+	<h4>Most Recently Added</h4>
+	<ul class="list-group">
+		<form class="form" id="history">
+			<select name="mad" form="history">
+				{% for madlib in hist %}
+				<option value="{{madlib.title}}">{{madlib.title}}</option>
+				{% endfor %}
+			</select>
+			<button class="btn btn-default">Go</button>
+		</form>
+	</ul>
+</div>
 {% endblock %}

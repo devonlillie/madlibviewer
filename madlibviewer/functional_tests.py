@@ -1,7 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
-
-
+from madlibs.models import Madlib,Field
 
 class NewVisitorTest(unittest.TestCase):
 	def setUp(self):
@@ -25,9 +25,9 @@ class NewVisitorTest(unittest.TestCase):
 		
 		# She fills in her answers for each prompt and submits
 
+
 		# The page refreshes to show her the filled in madlib
-	
-		# She thinks its hilarious so she saves the madlib to view later if she wants.
-		
+
+						 
 if __name__=='__main__':
 	unittest.main(warnings='ignore')
